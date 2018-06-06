@@ -124,7 +124,7 @@ X = reshape(A, img_size(1) * img_size(2), 3);
 % Run your K-Means algorithm on this data
 % You should try different values of K and max_iters here
 K = 16; 
-max_iters = 10;
+max_iters = 50;
 
 % When using K-Means, it is important the initialize the centroids
 % randomly. 
@@ -167,7 +167,9 @@ title('Original');
 subplot(1, 2, 2);
 imagesc(X_recovered)
 title(sprintf('Compressed, with %d colors.', K));
-
+baseFileName = 'my new image.png'; % Whatever....
+fullFileName = fullfile('D:/', baseFileName);
+imwrite(X_recovered, fullFileName);
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
